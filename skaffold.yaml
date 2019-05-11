@@ -1,30 +1,30 @@
 apiVersion: skaffold/v1beta2
 kind: Config
 build:
-  artifacts:
-  - image: changeme
-    context: .
-    docker: {}
-  tagPolicy:
-    envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway:{{.VERSION}}'
-  local: {}
-deploy:
-  kubectl: {}
-profiles:
-- name: dev
-  build:
     artifacts:
-    - docker: {}
+        -   image: changeme
+            context: .
+            docker: {}
     tagPolicy:
-      envTemplate:
-        template: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway:{{.DIGEST_HEX}}'
+        envTemplate:
+            template: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway:{{.VERSION}}'
     local: {}
-  deploy:
-    helm:
-      releases:
-        -   name: graphql-gateway
-            chartPath: charts/graphql-gateway
-        setValueTemplates:
-          image.repository: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway'
-          image.tag: '{{.DIGEST_HEX}}'
+deploy:
+    kubectl: {}
+profiles:
+    -   name: dev
+        build:
+            artifacts:
+                -   docker: {}
+            tagPolicy:
+                envTemplate:
+                    template: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway:{{.DIGEST_HEX}}'
+            local: {}
+        deploy:
+            helm:
+                releases:
+                    -   name: graphql-gateway
+                        chartPath: charts/graphql-gateway
+                    setValueTemplates:
+                        image.repository: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway'
+                        image.tag: '{{.DIGEST_HEX}}'
