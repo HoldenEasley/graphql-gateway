@@ -1,17 +1,17 @@
 package cloud.holden.springapp
 
-import com.expedia.graphql.DirectiveWiringHelper
-import com.expedia.graphql.SchemaGeneratorConfig
-import com.expedia.graphql.TopLevelObject
-import com.expedia.graphql.execution.KotlinDataFetcherFactoryProvider
-import com.expedia.graphql.hooks.SchemaGeneratorHooks
-import com.expedia.graphql.toSchema
 import cloud.holden.springapp.datafetcher.CustomDataFetcherFactoryProvider
 import cloud.holden.springapp.datafetcher.SpringDataFetcherFactory
 import cloud.holden.springapp.directive.DirectiveWiringFactory
 import cloud.holden.springapp.directive.LowercaseDirectiveWiring
 import cloud.holden.springapp.extensions.CustomSchemaGeneratorHooks
 import cloud.holden.springapp.query.Query
+import com.expedia.graphql.DirectiveWiringHelper
+import com.expedia.graphql.SchemaGeneratorConfig
+import com.expedia.graphql.TopLevelObject
+import com.expedia.graphql.execution.KotlinDataFetcherFactoryProvider
+import com.expedia.graphql.hooks.SchemaGeneratorHooks
+import com.expedia.graphql.toSchema
 import graphql.GraphQL
 import graphql.execution.AsyncExecutionStrategy
 import graphql.execution.AsyncSerialExecutionStrategy
