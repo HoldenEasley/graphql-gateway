@@ -14,7 +14,7 @@ env:
 knativeDeploy: false
 
 service:
-  name: spring-app
+  name: graphql-gateway
   type: ClusterIP
   externalPort: 80
   internalPort: 8080

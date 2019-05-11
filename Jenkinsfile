@@ -60,7 +60,7 @@ pipeline {
       }
       steps {
         container('maven') {
-          dir('charts/spring-app') {
+          dir('charts/graphql-gateway') {
             sh "jx step changelog --version v\$(cat ../../VERSION)"
 
             // release the helm chart

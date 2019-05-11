@@ -7,7 +7,7 @@ build:
     docker: {}
   tagPolicy:
     envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/holden3148/spring-app:{{.VERSION}}'
+      template: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway:{{.VERSION}}'
   local: {}
 deploy:
   kubectl: {}
@@ -18,13 +18,13 @@ profiles:
     - docker: {}
     tagPolicy:
       envTemplate:
-        template: '{{.DOCKER_REGISTRY}}/holden3148/spring-app:{{.DIGEST_HEX}}'
+        template: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway:{{.DIGEST_HEX}}'
     local: {}
   deploy:
     helm:
       releases:
-      - name: spring-app
-        chartPath: charts/spring-app
+        -   name: graphql-gateway
+            chartPath: charts/graphql-gateway
         setValueTemplates:
-          image.repository: '{{.DOCKER_REGISTRY}}/holden3148/spring-app'
+          image.repository: '{{.DOCKER_REGISTRY}}/holden3148/graphql-gateway'
           image.tag: '{{.DIGEST_HEX}}'
