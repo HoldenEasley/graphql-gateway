@@ -3,8 +3,8 @@ pipeline {
     label "jenkins-maven"
   }
   environment {
-    ORG = 'holden3148'
-    APP_NAME = 'spring-app'
+    ORG = 'holdeneasley'
+    APP_NAME = 'graphql-gateway'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
   }
   stages {
